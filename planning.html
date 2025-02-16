@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 Planning Twitch - Hyper Animé</title>
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* BACKGROUND DYNAMIQUE */
+        .nebula {
+            position: fixed;
+            width: 200vw;
+            height: 200vh;
+            background: 
+                radial-gradient(circle at 20% 30%, #ff00ff30 10%, transparent 50%),
+                radial-gradient(circle at 80% 70%, #00ffff30 10%, transparent 50%);
+            animation: nebulaFlow 20s linear infinite;
+            z-index: -1;
+        }
+
+        /* CONTENU PRINCIPAL */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #ff00ff;
+            border-radius: 20px;
+            box-shadow: 0 0 50px #ff00ff80;
+            backdrop-filter: blur(10px);
+            overflow-y: auto; /* Active le défilement */
+            max-height: 80vh; /* Limite la hauteur */
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px #ff00ff;
+            animation: titleGlitch 2s infinite;
+        }
+
+        .planning-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .day-card {
+            padding: 1.5rem;
+            background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+            border: 1px solid #ff00ff;
+            border-radius: 15px;
+            transform-style: preserve-3d;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+            animation: borderSpin 4s linear infinite;
+            opacity: 0.2;
+        }
+
+        .day-card:hover {
+            transform: translateY(-10px) rotateX(10deg) rotateY(5deg);
+            box-shadow: 0 0 40px #ff00ff;
+        }
+
+        .time {
+            color: #00ffff;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        /* BOUTON RETOUR */
+        .home-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            padding: 1rem 2rem;
+            background: #ff00ff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        .home-button:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: #00ffff;
+            box-shadow: 0 0 30px #00ffff;
+        }
+
+        /* ANIMATIONS */
+        @keyframes nebulaFlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes titleGlitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes borderSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* BARRE DE DÉFILEMENT CYBERPUNK */
+        .container::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .container::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            border-radius: 10px;
+            border: 2px solid #000;
+        }
+
+        .container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #ff00ff, #ff00ff);
+            box-shadow: 0 0 10px #ff00ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="nebula"></div>
+    <a href="./accueil.html" class="home-button">🏠 ACCUEIL</a>
+    <div class="container">
+        <h1>📅 PLANNING TWITCH</h1>
+        <div class="planning-grid">
+            <div class="day-card">
+                <span class="time">🕗 LUNDI 20H</span>
+                GAMEPLAY CHAOS 🔥
+            </div>
+            <div class="day-card">
+                <span class="time">🕘 MARDI 21H</span>
+                VIEWER GAMES 🎮
+            </div>
+            <div class="day-card">
+                <span class="time">🕖 MERCREDI 19H</span>
+                JUST CHATTING 💬
+            </div>
+            <div class="day-card">
+                <span class="time">🕙 JEUDI 22H</span>
+                SOIRÉE HORREUR 👻
+            </div>
+            <div class="day-card">
+                <span class="time">🕗 VENDREDI 20H</span>
+                SPEEDRUN NIGHT ⚡
+            </div>
+            <div class="day-card">
+                <span class="time">🕕 SAMEDI 18H</span>
+                TOURNOI FOLLOWER 🏆
+            </div>
+            <div class="day-card">
+                <span class="time">🕛 DIMANCHE - OFF</span>
+                REPOS 💤
+            </div>
+        </div>
+    </div>
+</body>
+</html>

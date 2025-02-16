@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NATOS-NK - Intro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./intro.css">
+</head>
+<body>
+
+    <!-- Lecteur musique -->
+    <div class="music-player">
+        <div class="track-info">
+            <div class="cover-art">
+                <img src="./th.jpg" alt="Cover Art">
+            </div>
+            <div class="track-details">
+                <div class="track-title">MAES</div>
+                <div class="track-artist">Artiste</div>
+            </div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="time-display">
+            <span class="current-time">0:00</span>
+            <span class="duration">0:00</span>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn"><i class="fas fa-step-backward"></i></button>
+            <button class="control-btn play-pause-btn" onclick="togglePlay()"><i class="fas fa-play"></i></button>
+            <button class="control-btn"><i class="fas fa-step-forward"></i></button>
+        </div>
+    </div>
+
+    <!-- Contenu existant -->
+    <div class="intro-container">
+        <div class="intro-animation">
+            <h1 class="intro-text">✈ NATOS-NK</h1>
+        </div>
+        <button class="enter-button" onclick="redirectToHome()">Entrer</button>
+    </div>
+
+    <audio id="audio" src="./MAGIE.mp3"></audio>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const playBtn = document.querySelector('.play-pause-btn');
+        const progressBar = document.querySelector('.progress-bar');
+        const currentTime = document.querySelector('.current-time');
+        const duration = document.querySelector('.duration');
+
+        let isPlaying = false;
+
+        function formatTime(seconds) {
+            const min = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60);
+            return `${min}:${sec.toString().padStart(2, '0')}`;
+        }
+
+        audio.addEventListener('timeupdate', () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+            currentTime.textContent = formatTime(audio.currentTime);
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            duration.textContent = formatTime(audio.duration);
+        });
+
+        const progressContainer = document.querySelector('.progress-container');
+        progressContainer.addEventListener('click', (e) => {
+            const width = progressContainer.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        });
+
+        function togglePlay() {
+            isPlaying ? audio.pause() : audio.play();
+            isPlaying = !isPlaying;
+            playBtn.innerHTML = isPlaying ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
+        }
+
+        function redirectToHome() {
+            window.location.href = "accueil.html";
+        }
+    </script>
+</body>
+</>
+
+<link rel="stylesheet" href="./responsive.css">

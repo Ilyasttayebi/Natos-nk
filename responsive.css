@@ -1,0 +1,373 @@
+/* Responsive CSS pour YAGI-HOUSE */
+
+/* ==================== Général ==================== */
+@media (max-width: 1200px) {
+    body {
+        font-size: 14px; /* Ajustement de la taille de la police */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 12px; /* Taille de police plus petite pour les petits écrans */
+    }
+}
+
+/* ==================== Intro Page ==================== */
+@media (max-width: 768px) {
+    .intro-text {
+        font-size: 4rem; /* Réduire la taille du texte pour les petits écrans */
+    }
+
+    .enter-button {
+        font-size: 1.2rem; /* Taille du bouton réduite */
+        padding: 10px 20px; /* Padding ajusté */
+    }
+
+    .music-player {
+        width: 90%; /* Largeur du lecteur musique ajustée */
+        top: 10px;
+        right: 10px;
+    }
+
+    .track-info {
+        flex-direction: column; /* Empiler les éléments du lecteur musique */
+        align-items: center;
+    }
+
+    .cover-art {
+        width: 50px;
+        height: 50px; /* Taille réduite de la pochette */
+    }
+
+    .track-details {
+        text-align: center; /* Centrer les détails de la piste */
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-text {
+        font-size: 3rem; /* Taille du texte encore plus petite pour les très petits écrans */
+    }
+
+    .enter-button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .music-player {
+        width: 100%; /* Pleine largeur pour les très petits écrans */
+        top: 5px;
+        right: 5px;
+    }
+}
+
+/* ==================== Accueil Page ==================== */
+@media (max-width: 1200px) {
+    header {
+        padding: 1rem; /* Réduire le padding du header */
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Taille du titre réduite */
+    }
+
+    nav ul {
+        gap: 1rem; /* Espacement réduit entre les liens */
+    }
+
+    nav a {
+        font-size: 1rem; /* Taille de police réduite pour les liens */
+    }
+
+    .twitch-link a {
+        font-size: 1.2rem; /* Taille réduite pour le lien Twitch */
+    }
+
+    .highlights li {
+        font-size: 1rem; /* Taille de police réduite pour les points forts */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Empiler les éléments du header */
+        align-items: center;
+    }
+
+    .header-left {
+        flex-direction: column; /* Empiler le titre et l'image */
+        gap: 0.5rem;
+    }
+
+    nav ul {
+        flex-direction: column; /* Empiler les liens de navigation */
+        gap: 0.5rem;
+    }
+
+    main {
+        width: 90%; /* Largeur du contenu principal ajustée */
+    }
+
+    .twitch-link a {
+        font-size: 1rem; /* Taille du lien Twitch réduite */
+    }
+
+    .highlights ul {
+        flex-direction: column; /* Empiler les points forts */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem; /* Taille du titre encore plus petite */
+    }
+
+    .twitch-link a {
+        font-size: 0.9rem; /* Taille du lien Twitch réduite */
+    }
+
+    .highlights li {
+        font-size: 0.9rem; /* Taille de police réduite pour les points forts */
+    }
+}
+
+/* ==================== Planning Page ==================== */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Largeur du conteneur ajustée */
+        padding: 20px; /* Padding réduit */
+    }
+
+    h1 {
+        font-size: 2rem; /* Taille du titre réduite */
+    }
+
+    .day {
+        font-size: 1rem; /* Taille de police réduite pour les jours */
+    }
+
+    .time {
+        font-size: 1.2rem; /* Taille de police réduite pour l'heure */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%; /* Pleine largeur pour les très petits écrans */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Taille du titre encore plus petite */
+    }
+
+    .day {
+        font-size: 0.9rem; /* Taille de police réduite pour les jours */
+    }
+
+    .time {
+        font-size: 1rem; /* Taille de police réduite pour l'heure */
+    }
+}
+
+/* ==================== Discord Page ==================== */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Largeur du conteneur ajustée */
+        padding: 20px; /* Padding réduit */
+    }
+
+    h1 {
+        font-size: 2rem; /* Taille du titre réduite */
+    }
+
+    .discord-info {
+        font-size: 1rem; /* Taille de police réduite pour les infos Discord */
+    }
+
+    .join-btn {
+        font-size: 1.2rem; /* Taille du bouton réduite */
+        padding: 12px 24px; /* Padding ajusté */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%; /* Pleine largeur pour les très petits écrans */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Taille du titre encore plus petite */
+    }
+
+    .discord-info {
+        font-size: 0.9rem; /* Taille de police réduite pour les infos Discord */
+    }
+
+    .join-btn {
+        font-size: 1rem; /* Taille du bouton réduite */
+        padding: 10px 20px; /* Padding ajusté */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* responsive.css - Corrections complémentaires */
+
+/* ==================== INTRO PAGE ==================== */
+@media (max-width: 768px) {
+    .music-player {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        right: auto;
+    }
+
+    .track-info {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .track-details {
+        flex: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-player {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .track-title {
+        font-size: 0.9em;
+    }
+
+    .track-artist {
+        font-size: 0.8em;
+    }
+
+    .controls {
+        gap: 15px;
+    }
+
+    .control-btn {
+        font-size: 1em;
+    }
+
+    .play-pause-btn {
+        font-size: 1.5em;
+    }
+}
+
+/* ==================== PLANNING PAGE ==================== */
+@media (max-width: 768px) {
+    .home-button {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        padding: 10px 15px;
+        font-size: 1em;
+        z-index: 1000;
+    }
+
+    .container {
+        margin-top: 70px; /* Espace pour le bouton */
+        width: 95%;
+        max-height: 75vh;
+    }
+
+    .day {
+        margin-bottom: 8px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin-top: 60px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .time {
+        font-size: 1.1em;
+    }
+}
+
+/* ==================== SECTIONS GÉNÉRALES ==================== */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem !important;
+    }
+
+    section {
+        margin: 1.5rem 0;
+        padding: 1.5rem;
+    }
+
+    .streamer-info,
+    .highlights {
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+    .twitch-link a {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+}
+
+/* ==================== DISCORD PAGE ==================== */
+@media (max-width: 480px) {
+    .container {
+        margin: 60px 10px 20px;
+        padding: 15px;
+    }
+
+    .join-btn {
+        width: 100%;
+        padding: 12px !important;
+        font-size: 0.9em !important;
+    }
+}
+
+/* ==================== CORRECTIONS D'ALIGNEMENT ==================== */
+@media (max-width: 768px) {
+    header img {
+        width: 150px !important;
+    }
+
+    nav a {
+        margin: 5px 0;
+        text-align: center;
+        display: block;
+    }
+
+    .intro-container {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .enter-button {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 30px;
+    }
+}
