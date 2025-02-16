@@ -1,244 +1,323 @@
-/* Responsive CSS pour YAGI-HOUSE */
-
-/* ==================== Général ==================== */
-@media (max-width: 1200px) {
-    body {
-        font-size: 14px; /* Ajustement de la taille de la police */
-    }
+/* RESET CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
 }
 
-@media (max-width: 768px) {
-    body {
-        font-size: 12px; /* Taille de police plus petite pour les petits écrans */
-    }
+body {
+    background-color: #0a0a0a;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
 }
 
-/* ==================== Intro Page ==================== */
+a {
+    text-decoration: none;
+}
+
+/* CURSEUR PERSONNALISÉ */
+.cursor {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff00ff;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-in-out;
+    z-index: 9999;
+}
+
+/* HEADERS ET NAVBAR */
+header {
+    width: 100%;
+    padding: 1rem 0;
+    background: #1a1a1a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+header h1 {
+    color: #fff;
+}
+
+header nav ul {
+    display: flex;
+    gap: 2rem;
+}
+
+header nav ul li {
+    list-style: none;
+}
+
+header nav ul li a {
+    color: #00ffff;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+header nav ul li a:hover {
+    color: #ff00ff;
+}
+
+/* AUDIO PLAYER */
+.music-player {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ff00ff;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.cover-art img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.track-details {
+    margin-left: 10px;
+}
+
+.track-title {
+    font-weight: bold;
+}
+
+.progress-container {
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: #00ffff;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: #00ffff;
+    font-size: 1.5rem;
+}
+
+/* INTRO CONTAINER */
+.intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.intro-text {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.enter-button {
+    background: #ff00ff;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff00ff;
+    transition: 0.3s ease;
+}
+
+.enter-button:hover {
+    transform: scale(1.1);
+    background: #00ffff;
+}
+
+/* GRID POUR LE PLANNING */
+.planning-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.day-card {
+    padding: 1.5rem;
+    background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+    border: 1px solid #ff00ff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #ff00ff;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.day-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px #ff00ff;
+}
+
+.time {
+    color: #00ffff;
+    font-size: 1.2rem;
+}
+
+/* BOUTON ACCUEIL */
+.home-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    padding: 1rem 2rem;
+    background: #ff00ff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 0 20px #ff00ff;
+}
+
+.home-button:hover {
+    background: #00ffff;
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #00ffff;
+}
+
+/* Bouton rejoindre Discord */
+.join-button {
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px #ff00ff;
+}
+
+.join-button:hover {
+    transform: scale(1.2) rotate(5deg);
+    box-shadow: 0 0 50px #00ffff;
+}
+
+/* STYLE POUR LES TABLETTES ET MOBILES */
 @media (max-width: 768px) {
-    .intro-text {
-        font-size: 3rem; /* Réduire la taille du texte pour les petits écrans */
-        text-align: center; /* Centrer le texte */
-    }
-
-    .enter-button {
-        font-size: 1.2rem; /* Taille du bouton réduite */
-        padding: 10px 20px; /* Padding ajusté */
-        margin: 20px auto; /* Centrer le bouton */
-        display: block; /* Assurer que le bouton est centré */
-    }
-
     .music-player {
-        width: 90%; /* Largeur du lecteur musique ajustée */
-        top: 10px;
-        left: 50%; /* Centrer le lecteur musique */
-        transform: translateX(-50%);
-        position: fixed; /* Fixer le lecteur en haut */
+        bottom: 1rem;
+        width: 100%;
+        max-width: none;
+        padding: 0.8rem;
     }
 
-    .track-info {
-        flex-direction: column; /* Empiler les éléments du lecteur musique */
-        align-items: center;
-    }
-
-    .cover-art {
-        width: 50px;
-        height: 50px; /* Taille réduite de la pochette */
-    }
-
-    .track-details {
-        text-align: center; /* Centrer les détails de la piste */
-    }
-}
-
-@media (max-width: 480px) {
     .intro-text {
-        font-size: 2rem; /* Taille du texte encore plus petite pour les très petits écrans */
+        font-size: 2rem;
     }
 
     .enter-button {
         font-size: 1rem;
-        padding: 8px 16px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    header nav ul li a {
+        font-size: 1rem;
+    }
+
+    .day-card {
+        font-size: 0.9rem;
+    }
+
+    .join-button {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
     }
 
     .music-player {
-        width: 100%; /* Pleine largeur pour les très petits écrans */
-        top: 5px;
-        right: 5px;
+        bottom: 0;
+        width: 100%;
+        max-width: none;
+    }
+
+    .intro-text {
+        font-size: 1.8rem;
+    }
+
+    .day-card {
+        font-size: 0.8rem;
+    }
+
+    .join-button {
+        padding: 0.8rem 1.8rem;
+        font-size: 1.1rem;
     }
 }
 
-/* ==================== Accueil Page ==================== */
-@media (max-width: 1200px) {
-    header {
-        padding: 1rem; /* Réduire le padding du header */
+@media (max-width: 320px) {
+    .music-player {
+        padding: 0.6rem;
     }
 
-    h1 {
-        font-size: 2.5rem; /* Taille du titre réduite */
-    }
-
-    nav ul {
-        gap: 1rem; /* Espacement réduit entre les liens */
-    }
-
-    nav a {
-        font-size: 1rem; /* Taille de police réduite pour les liens */
-    }
-
-    .twitch-link a {
-        font-size: 1.2rem; /* Taille réduite pour le lien Twitch */
-    }
-
-    .highlights li {
-        font-size: 1rem; /* Taille de police réduite pour les points forts */
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Empiler les éléments du header */
-        align-items: center;
-    }
-
-    .header-left {
-        flex-direction: column; /* Empiler le titre et l'image */
-        gap: 0.5rem;
-    }
-
-    nav ul {
-        flex-direction: column; /* Empiler les liens de navigation */
-        gap: 0.5rem;
-    }
-
-    main {
-        width: 90%; /* Largeur du contenu principal ajustée */
-        margin: 0 auto; /* Centrer le contenu */
-    }
-
-    .twitch-link a {
-        font-size: 1rem; /* Taille du lien Twitch réduite */
-    }
-
-    .highlights ul {
-        flex-direction: column; /* Empiler les points forts */
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2rem; /* Taille du titre encore plus petite */
-    }
-
-    .twitch-link a {
-        font-size: 0.9rem; /* Taille du lien Twitch réduite */
-    }
-
-    .highlights li {
-        font-size: 0.9rem; /* Taille de police réduite pour les points forts */
-    }
-}
-
-/* ==================== Planning Page ==================== */
-@media (max-width: 768px) {
-    .container {
-        width: 90%; /* Largeur du conteneur ajustée */
-        padding: 20px; /* Padding réduit */
-        margin: 0 auto; /* Centrer le conteneur */
-    }
-
-    h1 {
-        font-size: 2rem; /* Taille du titre réduite */
-    }
-
-    .day {
-        font-size: 1rem; /* Taille de police réduite pour les jours */
-    }
-
-    .time {
-        font-size: 1.2rem; /* Taille de police réduite pour l'heure */
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        width: 100%; /* Pleine largeur pour les très petits écrans */
-    }
-
-    h1 {
-        font-size: 1.5rem; /* Taille du titre encore plus petite */
-    }
-
-    .day {
-        font-size: 0.9rem; /* Taille de police réduite pour les jours */
-    }
-
-    .time {
-        font-size: 1rem; /* Taille de police réduite pour l'heure */
-    }
-}
-
-/* ==================== Discord Page ==================== */
-@media (max-width: 768px) {
-    .container {
-        width: 90%; /* Largeur du conteneur ajustée */
-        padding: 20px; /* Padding réduit */
-        margin: 0 auto; /* Centrer le conteneur */
-    }
-
-    h1 {
-        font-size: 2rem; /* Taille du titre réduite */
-    }
-
-    .discord-info {
-        font-size: 1rem; /* Taille de police réduite pour les infos Discord */
-    }
-
-    .join-btn {
-        font-size: 1.2rem; /* Taille du bouton réduite */
-        padding: 12px 24px; /* Padding ajusté */
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        width: 100%; /* Pleine largeur pour les très petits écrans */
-    }
-
-    h1 {
-        font-size: 1.5rem; /* Taille du titre encore plus petite */
-    }
-
-    .discord-info {
-        font-size: 0.9rem; /* Taille de police réduite pour les infos Discord */
-    }
-
-    .join-btn {
-        font-size: 1rem; /* Taille du bouton réduite */
-        padding: 10px 20px; /* Padding ajusté */
-    }
-}
-
-/* ==================== CORRECTIONS D'ALIGNEMENT ==================== */
-@media (max-width: 768px) {
-    header img {
-        width: 150px !important;
-    }
-
-    nav a {
-        margin: 5px 0;
-        text-align: center;
-        display: block;
-    }
-
-    .intro-container {
-        padding: 20px;
-        text-align: center;
+    .intro-text {
+        font-size: 1.5rem;
     }
 
     .enter-button {
-        position: relative;
-        bottom: auto;
-        right: auto;
-        margin-top: 30px;
+        font-size: 0.9rem;
+    }
+
+    .join-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.6rem;
     }
 }
