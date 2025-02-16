@@ -16,18 +16,23 @@
 /* ==================== Intro Page ==================== */
 @media (max-width: 768px) {
     .intro-text {
-        font-size: 4rem; /* Réduire la taille du texte pour les petits écrans */
+        font-size: 3rem; /* Réduire la taille du texte pour les petits écrans */
+        text-align: center; /* Centrer le texte */
     }
 
     .enter-button {
         font-size: 1.2rem; /* Taille du bouton réduite */
         padding: 10px 20px; /* Padding ajusté */
+        margin: 20px auto; /* Centrer le bouton */
+        display: block; /* Assurer que le bouton est centré */
     }
 
     .music-player {
         width: 90%; /* Largeur du lecteur musique ajustée */
         top: 10px;
-        right: 10px;
+        left: 50%; /* Centrer le lecteur musique */
+        transform: translateX(-50%);
+        position: fixed; /* Fixer le lecteur en haut */
     }
 
     .track-info {
@@ -47,7 +52,7 @@
 
 @media (max-width: 480px) {
     .intro-text {
-        font-size: 3rem; /* Taille du texte encore plus petite pour les très petits écrans */
+        font-size: 2rem; /* Taille du texte encore plus petite pour les très petits écrans */
     }
 
     .enter-button {
@@ -107,6 +112,7 @@
 
     main {
         width: 90%; /* Largeur du contenu principal ajustée */
+        margin: 0 auto; /* Centrer le contenu */
     }
 
     .twitch-link a {
@@ -137,6 +143,7 @@
     .container {
         width: 90%; /* Largeur du conteneur ajustée */
         padding: 20px; /* Padding réduit */
+        margin: 0 auto; /* Centrer le conteneur */
     }
 
     h1 {
@@ -175,6 +182,7 @@
     .container {
         width: 90%; /* Largeur du conteneur ajustée */
         padding: 20px; /* Padding réduit */
+        margin: 0 auto; /* Centrer le conteneur */
     }
 
     h1 {
@@ -207,143 +215,6 @@
     .join-btn {
         font-size: 1rem; /* Taille du bouton réduite */
         padding: 10px 20px; /* Padding ajusté */
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-/* responsive.css - Corrections complémentaires */
-
-/* ==================== INTRO PAGE ==================== */
-@media (max-width: 768px) {
-    .music-player {
-        position: fixed;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        right: auto;
-    }
-
-    .track-info {
-        flex-direction: row;
-        gap: 10px;
-    }
-
-    .track-details {
-        flex: 2;
-    }
-}
-
-@media (max-width: 480px) {
-    .music-player {
-        width: 95%;
-        padding: 10px;
-    }
-
-    .track-title {
-        font-size: 0.9em;
-    }
-
-    .track-artist {
-        font-size: 0.8em;
-    }
-
-    .controls {
-        gap: 15px;
-    }
-
-    .control-btn {
-        font-size: 1em;
-    }
-
-    .play-pause-btn {
-        font-size: 1.5em;
-    }
-}
-
-/* ==================== PLANNING PAGE ==================== */
-@media (max-width: 768px) {
-    .home-button {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        padding: 10px 15px;
-        font-size: 1em;
-        z-index: 1000;
-    }
-
-    .container {
-        margin-top: 70px; /* Espace pour le bouton */
-        width: 95%;
-        max-height: 75vh;
-    }
-
-    .day {
-        margin-bottom: 8px;
-        padding: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        margin-top: 60px;
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-    }
-
-    .time {
-        font-size: 1.1em;
-    }
-}
-
-/* ==================== SECTIONS GÉNÉRALES ==================== */
-@media (max-width: 768px) {
-    main {
-        padding: 1rem !important;
-    }
-
-    section {
-        margin: 1.5rem 0;
-        padding: 1.5rem;
-    }
-
-    .streamer-info,
-    .highlights {
-        padding: 15px;
-        margin: 15px 0;
-    }
-
-    .twitch-link a {
-        flex-direction: column;
-        text-align: center;
-        padding: 15px;
-    }
-}
-
-/* ==================== DISCORD PAGE ==================== */
-@media (max-width: 480px) {
-    .container {
-        margin: 60px 10px 20px;
-        padding: 15px;
-    }
-
-    .join-btn {
-        width: 100%;
-        padding: 12px !important;
-        font-size: 0.9em !important;
     }
 }
 
