@@ -252,7 +252,6 @@ h1, .twitch-link a, .highlights h2, .highlights li {
     box-shadow: 0 0 20px #ff00ff;
 }
 
-
 /* Grid des Viewers */
 .viewers-grid {
     display: flex;
@@ -261,47 +260,100 @@ h1, .twitch-link a, .highlights h2, .highlights li {
     margin: 5rem auto;
     max-width: 1200px;
     padding: 0 20px;
+    perspective: 2000px;
 }
 
 .goat-card {
-    background: linear-gradient(45deg, #9146ff, #0d0d15);
-    border-radius: 20px;
-    padding: 2rem;
+    background: linear-gradient(145deg, #1a1a2a, #2d2d42);
+    border-radius: 25px;
+    padding: 2.5rem;
     flex: 1;
     min-width: 280px;
     position: relative;
-    transition: transform 0.3s ease;
-    box-shadow: 0 10px 30px rgba(145,70,255,0.3);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transform-style: preserve-3d;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Effet de lueur */
+.goat-card::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, 
+        rgba(145,70,255,0.3) 0%, 
+        rgba(145,70,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.6s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Animations différenciées */
-.left-viewer:hover {
-    transform: translateX(-10px) rotate(-5deg);
+.left-viewer {
+    transform: perspective(1000px) rotateY(10deg) translateX(20px);
+    animation: float-left 4s ease-in-out infinite;
 }
 
-.center-viewer:hover {
-    transform: translateY(-10px) scale(1.05);
-}
-
-.right-viewer:hover {
-    transform: translateX(10px) rotate(5deg);
-}
-
-/* Styles spécifiques */
 .center-viewer {
-    background: linear-gradient(45deg, #ff6b6b, #0d0d15);
-}
-
-.center-viewer .goat-badge {
-    background: #ff6b6b;
+    transform: translateY(-40px) scale(1.05);
+    animation: float-center 3.5s ease-in-out infinite;
 }
 
 .right-viewer {
-    background: linear-gradient(45deg, #4ecdc4, #0d0d15);
+    transform: perspective(1000px) rotateY(-10deg) translateX(-20px);
+    animation: float-right 4s ease-in-out infinite;
 }
 
-.right-viewer .goat-badge {
-    background: #4ecdc4;
+/* Effets au survol */
+.goat-card:hover {
+    box-shadow: 0 30px 60px rgba(145,70,255,0.25);
+}
+
+.goat-card:hover::before {
+    opacity: 0.6;
+}
+
+.left-viewer:hover {
+    transform: perspective(1000px) rotateY(15deg) translateX(30px) translateZ(50px);
+}
+
+.center-viewer:hover {
+    transform: translateY(-60px) scale(1.15) translateZ(50px);
+}
+
+.right-viewer:hover {
+    transform: perspective(1000px) rotateY(-15deg) translateX(-30px) translateZ(50px);
+}
+
+/* Animations flottantes */
+@keyframes float-left {
+    0%, 100% { transform: perspective(1000px) rotateY(10deg) translateX(20px) translateY(0); }
+    50% { transform: perspective(1000px) rotateY(10deg) translateX(20px) translateY(-20px); }
+}
+
+@keyframes float-center {
+    0%, 100% { transform: translateY(-40px) scale(1.05) translateY(0); }
+    50% { transform: translateY(-40px) scale(1.05) translateY(-15px); }
+}
+
+@keyframes float-right {
+    0%, 100% { transform: perspective(1000px) rotateY(-10deg) translateX(-20px) translateY(0); }
+    50% { transform: perspective(1000px) rotateY(-10deg) translateX(-20px) translateY(-20px); }
+}
+
+/* Effets de texte */
+.goat-card h3 {
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    transform: translateZ(30px);
 }
 
 /* Responsive */
@@ -314,5 +366,11 @@ h1, .twitch-link a, .highlights h2, .highlights li {
     .goat-card {
         width: 100%;
         max-width: 400px;
+        transform: none !important;
+        animation: none !important;
+    }
+    
+    .goat-card:hover {
+        transform: translateY(-10px) !important;
     }
 }
