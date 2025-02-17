@@ -252,164 +252,90 @@ h1, .twitch-link a, .highlights h2, .highlights li {
     box-shadow: 0 0 20px #ff00ff;
 }
 
-/* Grid des Viewers */
-.viewers-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    margin: 5rem auto;
-    max-width: 1200px;
-    padding: 0 20px;
-}
-
-.goat-card {
-    background: linear-gradient(45deg, #9146ff, #0d0d15);
-    border-radius: 20px;
-    padding: 2rem;
-    flex: 1;
-    min-width: 280px;
-    position: relative;
-    transition: transform 0.3s ease;
-    box-shadow: 0 10px 30px rgba(145,70,255,0.3);
-}
-
-/* Animations différenciées */
-.left-viewer:hover {
-    transform: translateX(-10px) rotate(-5deg);
-}
-
-.center-viewer:hover {
-    transform: translateY(-10px) scale(1.05);
-}
-
-.right-viewer:hover {
-    transform: translateX(10px) rotate(5deg);
-}
-
-/* Styles spécifiques */
-.center-viewer {
-    background: linear-gradient(45deg, #ff6b6b, #0d0d15);
-}
-
-.center-viewer .goat-badge {
-    background: #ff6b6b;
-}
-
-.right-viewer {
-    background: linear-gradient(45deg, #4ecdc4, #0d0d15);
-}
-
-.right-viewer .goat-badge {
-    background: #4ecdc4;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .viewers-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .goat-card {
-        width: 100%;
-        max-width: 400px;
-    }
-}
-
-/* Section Viewer GOAT */
-.viewer-goat {
-    margin: 4rem 0;
-    position: relative;
+/* CSS amélioré */
+.viewers-section {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 30px;
+    max-width: 1400px;
+    margin: 6rem auto;
     padding: 0 2rem;
+    gap: 40px;
 }
 
 .goat-card {
-    background: linear-gradient(45deg, #9146ff, #0d0d15);
-    border-radius: 20px;
-    padding: 2rem;
+    background: linear-gradient(145deg, #1a1a2a, #2d2d42);
+    border-radius: 25px;
+    padding: 2.5rem;
     width: 30%;
-    min-width: 300px;
+    min-width: 320px;
     position: relative;
-    transform-style: preserve-3d;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    box-shadow: 0 20px 40px rgba(145,70,255,0.2);
-    perspective: 1000px;
+    transition: all 0.4s ease;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
 /* Positionnement spécifique */
-.goat-card:nth-child(1) { /* Carte Gauche */
-    transform: rotateY(10deg) translateX(20px);
+.left-card {
+    transform: perspective(1000px) rotateY(10deg) translateX(30px);
     margin-right: auto;
 }
 
-.goat-card:nth-child(2) { /* Carte Centre */
-    transform: translateY(-30px) scale(1.1);
+.center-card {
+    transform: translateY(-40px) scale(1.05);
     z-index: 2;
 }
 
-.goat-card:nth-child(3) { /* Carte Droite */
-    transform: rotateY(-10deg) translateX(-20px);
+.right-card {
+    transform: perspective(1000px) rotateY(-10deg) translateX(-30px);
     margin-left: auto;
 }
 
-/* Animations au survol */
-.goat-card:hover:nth-child(1) {
-    transform: rotateY(15deg) translateX(30px) translateZ(20px);
+/* Effets au survol */
+.goat-card:hover {
+    box-shadow: 0 30px 60px rgba(145,70,255,0.25);
 }
 
-.goat-card:hover:nth-child(2) {
-    transform: translateY(-40px) scale(1.15) translateZ(30px);
+.left-card:hover {
+    transform: perspective(1000px) rotateY(15deg) translateX(40px) translateZ(20px);
 }
 
-.goat-card:hover:nth-child(3) {
-    transform: rotateY(-15deg) translateX(-30px) translateZ(20px);
+.center-card:hover {
+    transform: translateY(-50px) scale(1.1) translateZ(30px);
 }
 
-.goat-card::before {
-    content: '';
-    position: absolute;
-    inset: -5px;
-    background: linear-gradient(45deg, #ff00ff, #00ffff);
-    z-index: -1;
-    filter: blur(30px);
-    opacity: 0.3;
-    animation: background-pulse 4s infinite;
+.right-card:hover {
+    transform: perspective(1000px) rotateY(-15deg) translateX(-40px) translateZ(20px);
 }
 
+/* Éléments communs */
 .profile-pic {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     border: 3px solid #fff;
-    margin: -80px auto 1rem;
-    display: block;
+    margin: -90px auto 1.5rem;
     object-fit: cover;
-    transition: all 0.4s ease;
-    transform: translateZ(30px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-.profile-pic:hover {
-    transform: rotate(15deg) scale(1.1) translateZ(40px);
-}
-
-/* Reste du CSS inchangé jusqu'aux animations */
 
 /* Responsive */
 @media (max-width: 1200px) {
-    .viewer-goat {
+    .viewers-section {
         flex-direction: column;
         align-items: center;
+        gap: 80px;
     }
     
     .goat-card {
         width: 100%;
         max-width: 500px;
         transform: none !important;
-        margin: 20px 0 !important;
+        margin: 0 !important;
+    }
+    
+    .center-card {
+        transform: translateY(0) scale(1) !important;
     }
     
     .goat-card:hover {
