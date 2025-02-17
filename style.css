@@ -342,3 +342,75 @@ h1, .twitch-link a, .highlights h2, .highlights li {
         transform: translateY(-10px) !important;
     }
 }
+
+
+/* Titre stylé à gauche */
+.goat-title {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.goat-title h2 {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: transparent;
+    background: linear-gradient(45deg, #9146ff, #ff6b6b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 0 15px rgba(145,70,255,0.3);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin: 0;
+}
+
+.goat-title span {
+    font-size: 4rem;
+    display: block;
+    margin: 10px 0;
+}
+
+/* Correction alignement texte */
+.goat-card h3 {
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    margin: -70px 0 1.5rem 0;
+    padding: 0 15px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Ajustement spécifique pour MDINAA */
+.left-card h3 {
+    margin-left: -10px; /* Compensation rotation */
+}
+
+/* Ajustement RAZANE */
+.center-card h3 {
+    letter-spacing: 2px; /* Meilleure lisibilité */
+}
+
+/* Version mobile */
+@media (max-width: 1200px) {
+    .goat-title {
+        position: static;
+        transform: none;
+        text-align: center;
+        margin: 3rem 0;
+    }
+    
+    .goat-title h2 {
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 2.5rem;
+    }
+    
+    .goat-title span {
+        display: inline-block;
+        margin: 0 10px;
+    }
+}
